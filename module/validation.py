@@ -2,13 +2,15 @@ import certifi
 import requests
 import os
 
+from .config import Config
+
 class SSLCert:
 
     def verify_SSLCerts():
         # add first the main certificate X.509 base 64 (*.cer), and run. Do the same for the children.
         # from https://appdividend.com/2022/01/29/python-certifi/
 
-        API_ENDPOINT = "https://dejt.jt.jus.br/dejt/f/n/diariocon"
+        API_ENDPOINT = Config.get("DEJT","API_ENDPOINT")
 
         try:
             print('Checking connection to website...')
