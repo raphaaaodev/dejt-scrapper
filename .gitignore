@@ -130,3 +130,6 @@ dmypy.json
 
 # main.py for testing
 maintest.py
+
+# assets
+assets/
