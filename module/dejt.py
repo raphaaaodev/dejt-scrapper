@@ -118,6 +118,10 @@ class Dejt:
 
         return notebooksDate
 
+    #------------------------------------------------------
+    # Download pdfs
+    #------------------------------------------------------
+
     def download_pdfs(session,dict,date):
         files_path = []
         path = f'assets\\pdf\\dejt\\{date.replace("/","-")}\\'
@@ -132,8 +136,9 @@ class Dejt:
                 dl = 0
                 total_length = int(total_length)
                 path_file = os.sep.join([path, orgao+".pdf"])
-                file = open(path+orgao+".pdf",'wb')
-                file_validation = open(path+orgao+"-validation.txt",'w')
+                file = open(path_file,'wb')
+                path_file_validation = os.sep.join([path, orgao+"-validation.txt"])
+                file_validation = open(path_file_validation,'w')
                 file_validation.write(str(total_length))
                 file_validation.close()
                 clear()
