@@ -21,7 +21,8 @@ class Search():
                 string = ""
 
                 for line in lines[index_first_line_processo_body:index_last_line_processo_body]:
-                    string += " " + line.rstrip().lower()
+                    string += line.rstrip().lower().replace(" ","")
+
 
                 processo = {lines[index_processo_title].rstrip():{
                     "to_search" : string,
@@ -34,7 +35,7 @@ class Search():
 
     #def export_needed_processos(processos_dictionary, txt_file_with_laywers):
     def export_needed_processos(processos_list):
-        search = "MAXIMILIANO NAGL GARCEZ".lower()
+        search = "MAXIMILIANO NAGL GARCEZ".lower().replace(" ","")
         processos_of_search = {}
         processos_found = []
 
