@@ -133,3 +133,9 @@ maintest.py
 
 # assets
 assets/
+
+# vscode
+.vscode
+
+# list with names
+advogados-para-pesquisa.txt
