@@ -143,7 +143,7 @@ class Dejt:
                 file_validation.close()
                 clear()
                 print(f"\nFazendo download ({index+1}/{orgaos_count}) do caderno {orgao} de {date}")
-                for data in download.iter_content(chunk_size=1096):
+                for data in download.iter_content(chunk_size=4096):
                     dl += len(data)
                     file.write(data)
                     done = int(50 * dl / total_length)
