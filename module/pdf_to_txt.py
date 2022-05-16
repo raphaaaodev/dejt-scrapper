@@ -80,9 +80,9 @@ class Pdf_to_txt:
         txtFilename = Path(pdf_path).stem + ".txt"
 
         date = Path(pdf_path).parent.name
-        path = f'assets\\txt\\dejt\\{date}'
+        path = Path(f'assets\\txt\\dejt\\') / date
         
-        if not Pdf_to_txt.folder_created_in_this_session:
+        if not path.exists():
             Dirs_files.create_folder_if_inexistent(path)            
         
         processoRegex = "^Processo Nº ([a-zA-Z]+)-([0-9]+)-([0-9]+).([0-9]+).([0-9]+).([0-9]+).([0-9]+)$"
@@ -139,7 +139,7 @@ class Pdf_to_txt:
         
 
         #Dirs_files.append_new_line(path+txtFilename, fake_txt_file.getvalue())
-        with open(os.sep.join([path, txtFilename]), 'w',encoding="utf-8") as fd:
+        with open(path/txtFilename, 'w',encoding="utf-8") as fd:
             fake_txt_file.seek(0)
             shutil.copyfileobj(fake_txt_file, fd)
 
@@ -148,4 +148,4 @@ class Pdf_to_txt:
 
         print(f"--- {round(time.time() - start_time_program,2)} seconds to finish the program ---\n")
 
-        return os.sep.join([path, txtFilename])
+        return path/txtFilename
